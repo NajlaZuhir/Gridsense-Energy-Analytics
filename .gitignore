@@ -1,0 +1,5 @@
+data/processed/
+data/results/
+
+models/
+__pycache__/
