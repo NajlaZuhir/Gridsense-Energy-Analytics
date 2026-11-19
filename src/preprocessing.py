@@ -77,11 +77,12 @@ def preprocess_data(file_path):
     if validation_passed:
         processed_path = os.path.join("data\\processed", "cleaned_electricity_hourly_dataset.parquet")
         df_cleaned.to_parquet(processed_path, index=True)
+        print(f"Data validation passed: {validation_passed}")
     
-    return df_cleaned, validation_passed
+    return df_cleaned
 
 if __name__ == "__main__":
     data_path = os.path.join("data\\raw", "electricity_hourly_dataset.tsf")
-    cleaned_data, is_valid = preprocess_data(data_path)
-    print(f"Data validation passed: {is_valid}")
+    cleaned_data = preprocess_data(data_path)
+    
     print(cleaned_data.head())
